@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: "[강의노트] 개발자에게 듣는 개발자 이야기"
 date: 2025-05-03
 categories: [정형학습, 개발환경, Git, 용어정리]
