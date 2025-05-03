@@ -1,4 +1,4 @@
-# VIBE-CODING
+# Ph.D Peter 의 좌충우돌 코딩배우기
 
 ## 저장소 목적
 
@@ -17,7 +17,7 @@
 - 미래의 나와 다른 입문자들에게 도움이 되는 자료 제공
 - 스스로의 성장을 돌아볼 수 있는 성장 아카이브 역할
 
-- 블로그 주소: [https://phd-peter.github.io/vibe-coding/](https://phd-peter.github.io/vibe-coding/)
+- 블로그 주소: [https://phd-peter.github.io/](https://phd-peter.github.io/)
 
 ---
 
@@ -25,7 +25,7 @@
 
 ### 1. 글 작성
 - `_posts/` 폴더에 마크다운(`.md`) 파일로 글을 작성합니다.
-- 파일명은 `YYYY-MM-DD-title.md` 형식으로 만듭니다.
+- 파일명은 `YYYY-MM-DD-title.md` 형식으로 만듭니다. 영어로 작성하길 바람.
 - **글 제목에는 아래와 같은 접두어를 사용할 수 있습니다:**
   - `[강의노트]` : 강의, 교재, 공식 문서 등 체계적인 학습 내용 정리
   - `[실습]` : 직접 해본 실습, 프로젝트, 코드 작성 등
@@ -39,7 +39,7 @@
 - 파일 맨 위에는 아래와 같은 front matter가 필요합니다:
   ```markdown
   ---
-  layout: single
+  layout: post
   title: "[강의노트] 파이썬 변수와 자료형"
   date: 2024-06-10
   categories: [Python, 정형학습]
@@ -49,8 +49,8 @@
 - **권장 categories 예시:**
   - `정형학습` : 강의, 교재, 공식 문서 등 체계적 학습
   - `비정형학습` : 실습, 문제해결, 자유주제 등 자발적 학습
-  - `Python`, `Git`, `Web`, `Markdown` 등 주제별 카테고리
-  - (복수 선택 가능, 필요시 자유롭게 추가)
+    - `Python`, `Git`, `Web`, `Markdown` 등 주제별 카테고리
+    - (복수 선택 가능, 필요시 자유롭게 추가)
 
 ### 2. 로컬에서 미리보기 (선택)
 ```sh
