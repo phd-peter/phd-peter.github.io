@@ -28,6 +28,8 @@ latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so tha
 ## Usage
 
 Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
+윈도우에서 "bundle exec jekyll s" 로 가상서버 구현가능
+
 
 ## Contributing
 
