@@ -1,0 +1,23 @@
+# Post Writing Rule
+
+이 규칙은 Jekyll Chirpy 테마를 사용하는 이 저장소에서 **포스트 파일(`_posts/*.md`)을 신규 생성 또는 수정**할 때 적용됩니다.
+
+## 필수 규칙
+
+1. **Front Matter 포함**
+   * 모든 포스트는 파일 맨 위에 `---` 로 감싼 YAML Front Matter 블록을 반드시 포함해야 합니다.
+   * 최소 필드: `title`, `date`, `categories`, `tags` 를 작성합니다.
+   * 기존 포스트에 Front Matter 가 없으면 **반드시 추가**합니다.
+   * 새 포스트를 만들 때도 동일하게 Front Matter 를 작성합니다.
+2. **파일명 규칙**
+   * `YYYY-MM-DD-title.md` (소문자, 공백 대신 하이픈) 형식을 사용합니다.
+3. **카테고리·태그**
+   * `categories` 는 최대 2단계 배열 `[대분류, 소분류]` 로 작성합니다.
+   * `tags` 는 소문자로 작성하며 개수 제한은 없습니다.
+4. **타임존 포함 날짜**
+   * `date` 필드는 `YYYY-MM-DD HH:MM:SS +/-TTTT` 형식으로 타임존 오프셋을 포함합니다.
+5. **기타 상세 규칙**
+   * 필요한 경우 `description`, `toc`, `comments` 등 추가 옵션을 Front Matter 에 명시합니다.
+   * 미디어 파일 경로·속성, 수식/다이어그램 활성화 등은 [Chirpy 문서](https://chirpy.cotes.page/posts/write-a-new-post/) 및 `_posts/2025-07-09-post-writing.md`를 참고합니다.
+
+이 규칙을 위반하는 PR 은 자동 리뷰 과정에서 변경 요청을 받을 수 있습니다.
