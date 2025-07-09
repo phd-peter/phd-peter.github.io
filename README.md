@@ -30,6 +30,32 @@ latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so tha
 Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
 윈도우에서 "bundle exec jekyll s" 로 가상서버 구현가능
 
+## Mac jekyll 환경설치
+`bundle exec jekyll s`(또는 `bundle exec jekyll serve`) 명령은 운영체제와 무관하게 Jekyll 사이트를 로컬에서 실행하는 표준 방법입니다.
+Windows에서만 동작하는 것이 아니라 macOS·Linux에서도 동일하게 사용할 수 있어요.
+
+1. Ruby & Bundler 설치  
+   • macOS 14(Sonoma) 이상에는 시스템에 기본 Ruby(3.0 계열)가 있지만, 별도 버전 관리 툴(rbenv, asdf 등)을 쓰면 충돌을 피하고 향후 업그레이드도 쉽습니다.  
+   • Homebrew로 예시:  
+     ```bash
+     brew install ruby        # (선택) 최신 루비
+     echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
+     source ~/.zshrc
+     gem install bundler
+     ```
+
+2. 프로젝트 디렉터리로 이동 후 의존성 설치  
+   ```bash
+   cd /Users/peter/Projects/phd-peter.github.io
+   bundle install    # Gemfile에 정의된 테마·플러그인 설치
+   ```
+
+3. 개발용 서버 실행  
+   ```bash
+   bundle exec jekyll s     # 또는 bundle exec jekyll serve
+   ```
+   기본적으로 http://localhost:4000 에 사이트가 뜹니다. `--livereload` 옵션을 주면 파일 변경 시 자동 새로고침도 됩니다.
+
 
 ## Contributing
 
