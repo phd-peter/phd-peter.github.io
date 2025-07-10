@@ -5,8 +5,6 @@ categories: [n8n, agent]
 tags: [n8n, ai, agent, automation, workflow, no-code]
 author: peter
 description: "n8n을 활용하여 AI 에이전트를 구축하는 방법을 단계별로 알아봅니다"
-image:
-  path: /assets/img/posts/n8n-ai-agent.png
-  alt: "n8n AI Agent 구축하기"
 pin: false
 ---
+자 이제 시작이야
