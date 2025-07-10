@@ -152,6 +152,18 @@ paginate: 10
 # The base URL of your site
 baseurl: ""
 
+# Plugins
+plugins:
+  - jekyll-default-layout
+  - jekyll-readme-index
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-archives
+
 # ------------ The following options are not recommended to be modified ------------------
 
 kramdown:
