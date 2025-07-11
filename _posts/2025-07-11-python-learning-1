@@ -1,0 +1,83 @@
+---
+title: "OpenAI Python Snippets for image processing and Function calling"
+date: 2025-07-11 18:00:00 +0900
+categories: [Python, 코드공부]
+tags: [python, 코드공부, OpenAI]
+--- 
+
+## 1. Intruduction
+- 영수증 이미지(.jpg)를 GPT vision을 통해서 원하는 항목만을 추출하는 코드를 작성해야함.
+- 구현 방식은 2가지가 가능함
+1. 이미지 전체를 OCR 한 이후에 원하는 항목을 추출
+2. 이미지를 GPT vision 할 때, function calling을 통해서 원하는 항목만을 추출하기
+- GPT의 답변으로는 1은 토큰수가 많아지고 비효율적이고 부정확할 가능성 있음. 2가 훨씬 효율적
+> OCR+LLM 매핑은 빠른 프로토타이핑·유연성이 장점이지만, 결과의 일관성과 정확도를 보장하기 위해 프롬프트·파싱 로직을 지속해서 다듬어야 합니다.
+> Function Calling은 “LLM ↔ 내 시스템 간 계약”을 명확히 설정해 안정적·일관적 결과를 얻고, 유지보수도 쉬운 반면, 초기 스키마 정의 작업이 필요합니다.
+
+## 2. 코드 작성
+- chatGPT에 학습된 정보가 구식 정보여서 생각만큼 원활하게 작동하지 않음 (혹은 그냥 과거의 내가 지식이 없었던가). Cookbook에도 구식 정보만 있음.
+- [OpenAI docs function calling](https://platform.openai.com/docs/guides/function-calling?api-mode=responses&example=get-weather)를 직접 읽어가면서 하나씩 구현함. 특히 예제 코드가 있어서 참고함.
+- openai api를 호출하는 방식은 (구식의) Chat Completions 방식과, (최신식의) Responses 방식이 있음. 
+
+### 환경설정
+```python
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY")) # 그냥 고정이다.
+```
+> 그냥 고정이다. 복붙하면된다. 언제나 가져다가 쓰기
+
+### Response 방식
+```python
+response = client.responses.create(
+    model="gpt-4o",
+    input=input,
+    tools=tools
+)
+```
+> very simple 하다.
+
+#### input 설정 (이미지 처리)
+```python
+input=[
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that extracts structured data from Korean taxi receipts."
+        },
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "input_image",
+                    "image_url": f"data:image/jpeg;base64,{b64(front_img)}"
+                }
+            ]
+        },
+    ]
+```
+> 이미지 input을 할 경우에 4o, 4.1, 4.5 / o1, o1-pro, o3 모델 중 하나를 선택해야 한다.
+> input은 리스트안에 딕셔너리로 설정한다.
+> image를 넣게 될 경우 content 키에 대응하는 내용을 리스트안에 딕셔너리로 넣어준다.
+> "type": "input_image" 이라고 명시해줘야 한다.(그냥 고정이다)
+> "image_url" 키에 이미지 데이터를 넣어준다. 키 값까지는 그냥 고정이다.
+> 이미지 데이터는 base64로 변환해서 넣어준다.
+
+
+### Chat Completions 방식
+
+
+
+
+
+
+
+```
+
+
+
+
+
+---
