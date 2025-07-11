@@ -39,6 +39,9 @@ response = client.responses.create(
 )
 ```
 > very simple 하다.
+> input 설정과 tools 설정에서 고생을 좀 했다. 정해진 값들이 있고 그것을 무조건 써야한다.
+> function 정의는 [playground](https://platform.openai.com/playground/prompts)에서 자동 생성이 되어서 좋다. -> 다만 "type": "function", 을 맨 앞줄에 무조건 추가해야한다.
+
 
 #### input 설정 (이미지 처리)
 ```python
