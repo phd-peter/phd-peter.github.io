@@ -6,10 +6,10 @@ tags: [python, 코드공부, OpenAI]
 --- 
 
 ## 1. Introduction
-- 영수증 이미지를 GPT vision을 통해서 원하는 항목만을 추출하는 코드를 작성해야함.
+- 영수증 이미지를 OPENAI의 Vision api를 통해서 원하는 항목만을 추출하는 코드를 작성해야함.
 - 구현 방식은 2가지가 가능함
-1. 이미지 전체를 OCR 한 이후에 원하는 항목을 추출
-2. 이미지를 GPT vision 할 때, function calling을 통해서 원하는 항목만을 추출하기
+    1. 이미지 전체를 OCR 한 이후에 원하는 항목을 추출
+    2. 이미지를 OPENAI의 Vison api 사용할 때 function calling을 통해서 원하는 항목만을 추출하기
 - GPT의 답변으로는 1은 토큰수가 많아지고 비효율적이고 부정확할 가능성 있음. 2가 훨씬 효율적
 > OCR+LLM 매핑은 빠른 프로토타이핑·유연성이 장점이지만, 결과의 일관성과 정확도를 보장하기 위해 프롬프트·파싱 로직을 지속해서 다듬어야 합니다.
 > Function Calling은 “LLM ↔ 내 시스템 간 계약”을 명확히 설정해 안정적·일관적 결과를 얻고, 유지보수도 쉬운 반면, 초기 스키마 정의 작업이 필요합니다.
@@ -17,7 +17,7 @@ tags: [python, 코드공부, OpenAI]
 ## 2. 코드 작성
 - chatGPT에 학습된 정보가 구식 정보여서 생각만큼 원활하게 작동하지 않음 (혹은 그냥 과거의 내가 지식이 없었던가). Cookbook에도 구식 정보만 있음.
 - [OpenAI docs function calling](https://platform.openai.com/docs/guides/function-calling?api-mode=responses&example=get-weather)를 직접 읽어가면서 하나씩 구현함. 특히 예제 코드가 있어서 참고함.
-- openai api를 호출하는 방식은 (구식의) Chat Completions 방식과, (최신식의) Responses 방식이 있음. 
+- openai api를 호출하는 방식은 (구식의) Chat Completions 방식과, (최신식의) Responses 방식이 있음.
 
 ### 환경설정
 ```python
