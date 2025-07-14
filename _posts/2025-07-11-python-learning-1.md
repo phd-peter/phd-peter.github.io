@@ -11,8 +11,9 @@ tags: [python, 코드공부, OpenAI]
     1. 이미지 전체를 OCR 한 이후에 원하는 항목을 추출
     2. 이미지를 OPENAI의 Vison api 사용할 때 function calling을 통해서 원하는 항목만을 추출하기
 - GPT의 답변으로는 1은 토큰수가 많아지고 비효율적이고 부정확할 가능성 있음. 2가 훨씬 효율적
-> OCR+LLM 매핑은 빠른 프로토타이핑·유연성이 장점이지만, 결과의 일관성과 정확도를 보장하기 위해 프롬프트·파싱 로직을 지속해서 다듬어야 합니다.
-> Function Calling은 “LLM ↔ 내 시스템 간 계약”을 명확히 설정해 안정적·일관적 결과를 얻고, 유지보수도 쉬운 반면, 초기 스키마 정의 작업이 필요합니다.
+> 1-OCR+LLM 매핑은 빠른 프로토타이핑·유연성이 장점이지만, 결과의 일관성과 정확도를 보장하기 위해 프롬프트·파싱 로직을 지속해서 다듬어야 합니다.
+
+> 2-Function Calling은 “LLM ↔ 내 시스템 간 계약”을 명확히 설정해 안정적·일관적 결과를 얻고, 유지보수도 쉬운 반면, 초기 스키마 정의 작업이 필요합니다.
 
 ## 2. 코드 작성
 - chatGPT에 학습된 정보가 구식 정보여서 생각만큼 원활하게 작동하지 않음 (혹은 그냥 과거의 내가 지식이 없었던가). Cookbook에도 구식 정보만 있음.
@@ -28,9 +29,7 @@ from openai import OpenAI
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY")) # 그냥 고정이다.
 ```
-> 그냥 고정이다. 복붙하면된다. 
-> 
-> 언제나 가져다가 쓰기
+> api key 설정은 항상 고정이다. 복붙하면된다. 언제나 가져다가 쓰기
 
 ### Response 방식
 ```python
@@ -41,10 +40,10 @@ response = client.responses.create(
 )
 ```
 > very simple 하다.
-> body에 들어갈 수 있는 목록은 [OpenAI api reference](https://platform.openai.com/docs/api-reference/responses/create)에서 확인 가능하다. 여기서는 input과 tools를 사용했음.
+- body에 들어갈 수 있는 목록은 [OpenAI api reference](https://platform.openai.com/docs/api-reference/responses/create)에서 확인 가능하다. 여기서는 input과 tools를 사용했음.
 - Prompt라는 body 목록이 있는데. 이건 미리 openai dashboard에 프롬프트를 {{customer_id}} 형식으로 저장해놓고. 코드에서는 {{customer_id}} 만 정의하는 그런거도있다. 자세한건 추후 공부.
 
-> input 설정과 tools 설정에서 고생을 좀 했다. 정해진 값들이 있고 그것을 무조건 써야한다.
+- input 설정과 tools 설정에서 고생을 좀 했다. 정해진 값들이 있고 그것을 무조건 써야한다.
 
 
 #### input 설정 (이미지 처리)
